@@ -1,5 +1,8 @@
-sudo xrandr --newmode "1920x1080_60.00"  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
+newMode=$(echo $(cvt 1920 1080) | sed -r 's/.*Modeline \".*\" //g')
+newModeName="CustomHD"
 
-sudo xrandr --addmode Virtual1 "1920x1080_60.00"
+activeMonitor=$(xrandr | grep " connected " | awk '{ print$1 }')
 
-sudo xrandr --output Virtual1 --mode 1920x1080_60.00
+xrandr --newmode $newModeName $newMode
+xrandr --addmode $activeMonitor $newModeName
+xrandr --output $activeMonitor --mode $newModeName
