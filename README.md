@@ -1,2 +1,2 @@
 ### Linux Helpers
-Nothing but random scripts useful to me :)
+Nothing but random scripts useful to me :smiley:
